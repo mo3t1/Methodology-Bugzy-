@@ -1,9 +1,10 @@
-# Methodology-Bugzy-
+# Methodology-Bugzy
 
 Recon && Testing Flow
 
 1. Find subdomains
-     Subfinder
+
+    Subfinder
      - subfinder -d target.com -o subs.txt
 
      Assetfinder
@@ -15,13 +16,13 @@ Recon && Testing Flow
      Filter & Clean
      - cat subs.txt | sort -u > final_subs.txt
        
-2. Extract old URLs from wayback
+3. Extract old URLs from wayback
    - cat subs.txt | waybackurls > wayback.txt
-3. Filter for  parameters
+4. Filter for  parameters
    - cat wayback.txt | grep "=" > params.txt
    - we'll later test for XSS,IDOR,LFI,Redirects using params.txt
 
-4. Directory Brute-Forcing
+5. Directory Brute-Forcing
 
 # Gobuster
    -gobuster dir -u https://target.com -w wordlists/common.txt -t 50 -x php,js,html,json
